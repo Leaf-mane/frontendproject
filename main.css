@@ -26,16 +26,36 @@ html, body{
 }
 #eledoorl {
     position: absolute;
-
+    z-index: 2;
+    top: 12%;
+    bottom: 0;
+    left: 25%;
+    right: 0%;
+    width: 600px;
+    height: 88%;
+    /* transform-origin: right center;
+    transform: translateX(0); */
 }
 #eledoorr{
     position: absolute;
-
+    z-index: 2;
+    top: 12%;
+    bottom: 0;
+    left: 50%;
+    right: 0;
+    width: 600px;
+    height: 88%;
+    /* transform-origin: left center;
+    transform: translateX(0); */
 }
 #doors-button{
     background-color: red;
-    z-index: 2;
+    z-index: 6666;
     display: absolute;
+    height: 500px;
+    width: 500px;
+    top: 82%;
+    right: 9%;
 }
 #enter-button{
     width: 100px;
@@ -67,7 +87,7 @@ html, body{
     left: 0;
     
 }
-.overlay {
+/* .overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -83,7 +103,7 @@ html, body{
   }
   #artwork-image:hover + .overlay {
     opacity: 50%;
-  }
+  } */
 #artwork-description{
     color: white;
   font-size: 20px;
@@ -128,4 +148,40 @@ html, body{
     0% { transform: translate(0,  0px); }
     50%  { transform: translate(0, 15px); }
     100%   { transform: translate(0, -0px); }    
+}
+
+#eledoorl {
+    transform-origin: right center;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-name: openDoors2;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+#eledoorr {
+    transform-origin: left center;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: 1;
+    animation-name: openDoors;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+}
+
+@keyframes openDoors {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(92%);
+    }
+}
+@keyframes openDoors2 {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-94%);
+    }
 }

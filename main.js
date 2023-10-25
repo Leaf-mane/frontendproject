@@ -7,7 +7,7 @@ $(document).ready(function() {
         // Define a random page number to request different results each time
         const randomPage = Math.floor(Math.random() * 10) + 1;
         const totalPages = 5;
-        const resultsPerPage = 100;
+        const resultsPerPage = 1000;
         // Make an API request
         $.ajax({
             url: apiEndpoint,
@@ -64,4 +64,11 @@ $(document).ready(function() {
     console.log("Click detected on artwork button")
     // Get a random artwork when the page loads
     // getRandomArtwork();
+    function openElevatorDoors() {
+        // Toggle the animation-play-state to 'running' to start the animation
+        $('#eledoorl, #eledoorr').css('animation-play-state', 'running');
+    }
+    
+    // Call the function when needed, e.g., when the "Open Doors" button is clicked
+    $('#open-doors-button').on('click', openElevatorDoors);
 });
