@@ -7,15 +7,78 @@
 html, body{
     height: 100%;
     width: 100%;
+    background-color: black;
+}
+
+#elevatorcontainer{
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+#elevatorbody {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    /* opacity: 50%; */
+    z-index: 1;
+    pointer-events: none;
+}
+#eledoorl {
+    position: absolute;
+
+}
+#eledoorr{
+    position: absolute;
+
+}
+#doors-button{
+    background-color: red;
+    z-index: 2;
+}
+#enter-button{
+    width: 100px;
+    height: 100px;
+    color: black;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    top: 82%;
+    right: 9.6%;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+}
+#enter-button:hover{
+    background-color: #4CAF50; /* Green */
+    color: white;
 }
 
 #artwork-container{
-    align-items: center;
+    display: flex; /* Use flexbox to center its contents vertically and horizontally */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: absolute;
+    flex-direction: column;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 #artwork-image{
     width: 500px;
     height: 500px;
-    border: 10px solid brown;
-    
+    border: 2px solid black;
+    z-index: 0;
+}
+#artwork-title{
+    color: white;
+    font-size: 15px;
+    font-family: 'Sometype Mono', monospace;
+    text-transform: uppercase;
+}
+#artwork-artist{
+    color: white;
+    font-family: 'Sometype Mono', monospace;
+    text-transform: uppercase;
 }

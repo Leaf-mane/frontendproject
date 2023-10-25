@@ -41,9 +41,17 @@ $(document).ready(function() {
         });
     }
 
+    $('#enter-button').on('click', function() {
+        // Append the content from the hidden container to the artwork container
+        $('#artwork-container').append($('#hidden-content').html());
+        // Trigger the getRandomArtwork function to fetch and display random artwork
+        getRandomArtwork();
+        // Hide the "Enter" button
+        $('#enter-button').hide();
+    });
     // Attach click event to the button
-    $('#get-random-artwork').on('click', getRandomArtwork);
+    $(document).on('click', '#get-random-artwork', getRandomArtwork);
 
     // Get a random artwork when the page loads
-    getRandomArtwork();
+    // getRandomArtwork();
 });
