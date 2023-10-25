@@ -9,7 +9,13 @@ html, body{
     width: 100%;
     background-color: black;
 }
-
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
 #elevatorcontainer{
     display: flex;
     height: 100vh;
@@ -29,9 +35,9 @@ html, body{
     z-index: 2;
     top: 12%;
     bottom: 0;
-    left: 25%;
+    left: 26%;
     right: 0%;
-    width: 600px;
+    width: 650px;
     height: 88%;
     /* transform-origin: right center;
     transform: translateX(0); */
@@ -41,9 +47,9 @@ html, body{
     z-index: 2;
     top: 12%;
     bottom: 0;
-    left: 50%;
+    left: 51%;
     right: 0;
-    width: 600px;
+    width: 650px;
     height: 88%;
     /* transform-origin: left center;
     transform: translateX(0); */
@@ -51,7 +57,7 @@ html, body{
 #doors-button{
     background-color: red;
     z-index: 6666;
-    display: absolute;
+    display: block;
     height: 500px;
     width: 500px;
     top: 82%;
@@ -79,31 +85,13 @@ html, body{
     display: flex; /* Use flexbox to center its contents vertically and horizontally */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    position: relative;
-    flex-direction: column;
-    top: 30%;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    
-}
-/* .overlay {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
+    flex-direction: column;
     width: 100%;
-    opacity: 0;
-    transition: .5s ease;
-    background-color: #000000;
-    z-index: 2;
-    pointer-events: none;
-  }
-  #artwork-image:hover + .overlay {
-    opacity: 50%;
-  } */
+    height: 50%;
+    top: 30%;
+}
+
 #artwork-description{
     color: white;
   font-size: 20px;
@@ -182,6 +170,6 @@ html, body{
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-94%);
+        transform: translateX(-100%);
     }
 }

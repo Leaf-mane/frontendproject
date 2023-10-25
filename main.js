@@ -53,7 +53,7 @@ $(document).ready(function() {
     $('#enter-button').on('click', function() {
         // Append the content from the hidden container to the artwork container
         $('#artwork-container').append($('#hidden-content').html());
-        
+        setTimeout(openElevatorDoors, 6000);
         // Trigger the getRandomArtwork function to fetch and display random artwork
         getRandomArtwork();
         // Hide the "Enter" button
@@ -70,5 +70,5 @@ $(document).ready(function() {
     }
     
     // Call the function when needed, e.g., when the "Open Doors" button is clicked
-    $('#open-doors-button').on('click', openElevatorDoors);
+    
 });
