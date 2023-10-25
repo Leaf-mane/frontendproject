@@ -1,46 +1,49 @@
 $(document).ready(function() {
-    let userInput = '';
-    $('#searchButton').on('click', function() {
-        userInput = $('#movieSearch').val();
-        let apiKey = 'UF8yV7gC2w9jWTTAKMiGpPmB7xAgcSJdA9iA8Wqh';
-        let searchField = 'name';
-        let searchValue = userInput;
+    const apiKey = '0YxvJxV6';
+    const apiEndpoint = 'https://www.rijksmuseum.nl/api/nl/collection';
+    
+    // Gets and displays random art
+    function getRandomArtwork() {
+        // Define a random page number to request different results each time
+        const randomPage = Math.floor(Math.random() * 10) + 1;
 
-        let url = `https://api.watchmode.com/v1/search/?apiKey=${apiKey}&search_field=${searchField}&search_value=${searchValue}`;
+        // Make an API request
+        $.ajax({
+            url: apiEndpoint,
+            headers: {
+                'X-Custom-ApiKey': apiKey
+            },
+            data: {
+                key: apiKey,
+                format: 'json',
+                q: '',
+                s: 'relevance',
+                p: randomPage, // Random page
+            },
+            success: function(data) {
+                // Check if there are any artworks in the response
+                if (data.artObjects && data.artObjects.length > 0) {
+                    // Randomly select an artwork
+                    const randomIndex = Math.floor(Math.random() * data.artObjects.length);
+                    const artwork = data.artObjects[randomIndex];
 
-        // API request using the user input
-        $.get(url, function(data) {
-            // Clear any previous results
-            $('#resultsList').empty();
-
-            if (data.title_results.length > 0) {
-                // Loop through the title results and display them in a list
-                data.title_results.forEach(function(result) {
-                    $('#resultsList').append(
-                        `<li>
-                            <a href="#" class="result-link" data-id="${result.id}">${result.name}</a>
-                        </li>`
-                    );
-                });
-
-                //click event for the result links
-                $('.result-link').on('click', function() {
-                    // Get the selected result's ID
-                    let selectedId = $(this).data('id');
-                    let titleSearch = `https://api.watchmode.com/v1/title/${selectedId}/details/?apiKey=${apiKey}`;
-                    $.get(titleSearch, function(data) {
-                        console.log(data);
-                    }).fail(function(error) {
-                        console.error('Error:', error);
-                    });
-                    console.log('Selected ID: ' + selectedId);
-                });
-            } else {
-                $('#resultsList').append('<li>No results found.</li>');
+                    //art details
+                    $('#artwork-image').attr('src', artwork.webImage.url);
+                    $('#artwork-title').text(artwork.title);
+                    $('#artwork-artist').text(artwork.principalOrFirstMaker);
+                } else {
+                    // No art found in the response
+                    $('#artwork-image').attr('src', '');
+                    $('#artwork-title').text('No artworks found');
+                    $('#artwork-artist').text('');
+                }
             }
-        }).fail(function(error) {
-            console.error('Error:', error);
         });
-    });
+    }
 
+    // Attach click event to the button
+    $('#get-random-artwork').on('click', getRandomArtwork);
+
+    // Get a random artwork when the page loads
+    getRandomArtwork();
 });
