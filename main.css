@@ -21,7 +21,7 @@ html, body{
     height: 100%;
     width: 100%;
     /* opacity: 50%; */
-    z-index: 1;
+    z-index: 4;
     pointer-events: none;
 }
 #eledoorl {
@@ -48,6 +48,7 @@ html, body{
     right: 9.6%;
     border-radius: 15px;
     transition-duration: 0.4s;
+    z-index: 5;
 }
 #enter-button:hover{
     background-color: #4CAF50; /* Green */
@@ -58,20 +59,47 @@ html, body{
     display: flex; /* Use flexbox to center its contents vertically and horizontally */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
-    position: absolute;
+    position: relative;
     flex-direction: column;
-    top: 0;
+    top: 30%;
     right: 0;
     bottom: 0;
     left: 0;
     
 }
-
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #000000;
+    z-index: 2;
+    pointer-events: none;
+  }
+  #artwork-image:hover + .overlay {
+    opacity: 50%;
+  }
+#artwork-description{
+    color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 #artwork-image{
     width: 500px;
     height: 500px;
     border: 2px solid black;
-    z-index: 0;
+    z-index: 1;
     border-radius: 15px;
     
 }
