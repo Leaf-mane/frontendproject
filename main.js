@@ -144,4 +144,15 @@ $(document).ready(function() {
      function waitingDoorButton(){
         $('#newfloorbutton').text('Waiting...');
      }
+// ************************************************************** JUMPSCARE!!!! ************************************************************************//
+
+    $("#scare").click(function() {
+        const whisper = $('#whisper')[0];
+        whisper.play();
+        $("#jumpscare").show(); // Show the element when the button is clicked
+        setTimeout(function() {
+            $("#jumpscare").hide(); // Hide the element after 10 seconds
+        }, 5000);
+    });
+
 });

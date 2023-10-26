@@ -245,3 +245,20 @@ body {
     animation-direction: reverse;
 }
 
+#scare{
+    right: 19%;
+    top: 27%;
+    position: fixed;
+    z-index: 50;
+    background-color: red;
+    height: 5%;
+    width: 3%;
+    opacity: 1%;
+}
+#jumpscare{
+    position: fixed;
+    z-index: 50;
+    height: 100%;
+    width: 100%;
+    display: none;
+}

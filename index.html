@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Sometype+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <button id="scare"></button>
+    <img src="/img/intruder2.jpg" id="jumpscare">
+    <audio id="whisper" src="music/scare.mp3" type="audio/mp3"></audio>
     <div id="elevator-container">
         <!--                 AUDIO                 -->
         <audio id="elevator-music" loop volume="0.1">
@@ -27,6 +30,7 @@
         <!--           ELEVATOR STUFF               -->
         <button id="enter-button">Enter</button>
         <button id="newfloorbutton">New Floor</button>
+        
         <img src="img/elevator.png" id="elevatorbody">
         <div id="elevator-doors" class="close">    
             <img src="img/elevatordoorleft.png" id="eledoorl" class="elevator-doors">
