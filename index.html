@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="elevator-container">
-        <audio id="elevator-music" autoplay loop>
+        <audio id="elevator-music" autoplay loop volume="0.1">
             <source src="music/muzak.mp3" type="audio/mp3">
         </audio>
         <button id="enter-button">Enter</button>
@@ -28,7 +28,7 @@
     <!-- Artwork divs (Hidden by default until button is pressed) -->
     <div id="hidden-content" style="display: none;">
         <h1>Random Artwork</h1>
-        <img id="artwork-image" class="floating" src="" alt="Artwork">
+        <img id="artwork-image" class="floating" src="img/default-eye.gif" alt="Artwork">
         <div class="overlay">
             <p id="artwork-description"></p>
         </div>

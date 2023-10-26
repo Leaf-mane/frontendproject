@@ -28,9 +28,16 @@ $(document).ready(function() {
                     // Randomly select an artwork
                     const randomIndex = Math.floor(Math.random() * data.artObjects.length);
                     const artwork = data.artObjects[randomIndex];
+                // Fallback in case of missing artwork from source
+                    const artworkImage = artwork.webImage.url;
+                    const defaultImage = 'img/default-eye.gif';
 
-                    //art details
-                    $('#artwork-image').attr('src', artwork.webImage.url);
+                    if (artworkImage){
+                        $('#artwork-image').attr('src', artworkImage);
+                    } else {
+                        $('#artwork-image').attr('src', defaultImage);
+                    }
+                    
                     console.log("Applying artwork")
                     $('#artwork-title').text(artwork.title);
                     $('#artwork-artist').text(artwork.principalOrFirstMaker);
@@ -38,7 +45,7 @@ $(document).ready(function() {
                         $('#artwork-description').text(artwork.plaqueDescription);
                     } else {
                         // No description found in the response
-                        $('#artwork-description').text('No description available');
+                        $('#artwork-description').text('Try again :)');
                     }
                 } else {
                     // No art found in the response
