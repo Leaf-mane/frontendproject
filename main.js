@@ -1,5 +1,7 @@
+
 $(document).ready(function() {
-    const apiKey = '0YxvJxV6';
+    require('dotenv').config();
+    const apiKey = process.env.API_KEY;
     const apiEndpoint = 'https://www.rijksmuseum.nl/api/nl/collection';
     let doorsOpen = false;
     const elevatorMusic = $('#elevator-music')[0]; // Get the first element of the jQuery object
