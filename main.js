@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    // require('dotenv').config();
+    import('dotenv').config();
     // dotenv.config();
     const apiKey = process.env.API_KEY;
     const apiEndpoint = 'https://www.rijksmuseum.nl/api/nl/collection';
