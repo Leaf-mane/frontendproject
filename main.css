@@ -16,7 +16,9 @@ body {
     padding: 0;
     position: relative;
     overflow: hidden;
+
 }
+/*                                              General body stuff                                 */
 #elevatorcontainer{
     display: flex;
     height: 100vh;
@@ -55,6 +57,7 @@ body {
     /* transform-origin: left center;
     transform: translateX(0); */
 }
+/*                                         Buttons                                                   */
 #doors-button{
     background-color: red;
     z-index: 6666;
@@ -63,6 +66,7 @@ body {
     width: 500px;
     top: 82%;
     right: 9%;
+    
 }
 #enter-button{
     width: 100px;
@@ -76,11 +80,21 @@ body {
     border-radius: 15px;
     transition-duration: 0.4s;
     z-index: 7;
+    box-shadow:inset 0px 0px 14px 11px #f7f7f7;
+	background:linear-gradient(to bottom, #c7c7c7 5%, #333333 100%);
+	background-color:#c7c7c7;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: 'Sometype Mono', monospace;
+    padding: 20px;
+    text-decoration:none;
+	text-shadow:0px 0px 4px #ff0000;
 }
 #enter-button:hover{
     background-color: #4CAF50; /* Green */
     color: white;
 }
+
 #newfloorbutton{
     width: 100px;
     height: 100px;
@@ -93,16 +107,41 @@ body {
     border-radius: 15px;
     transition-duration: 0.4s;
     z-index: 6;
+    box-shadow:inset 0px 0px 14px 11px #f7f7f7;
+	background:linear-gradient(to bottom, #c7c7c7 5%, #333333 100%);
+	background-color:#c7c7c7;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: 'Sometype Mono', monospace;
+    padding: 20px;
+    text-decoration:none;
+	text-shadow:0px 0px 4px #ff0000;
 }
+#newFloorButton:hover{
+    background:linear-gradient(to bottom, #333333 5%, #c7c7c7 100%);
+	background-color:#333333;
+}
+#newFloorButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+
+
+/*                                        Artwork container stuff                               */
 #artwork-container{
-    display: flex; /* Use flexbox to center its contents vertically and horizontally */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center; 
     position: absolute;
     flex-direction: column;
     width: 100%;
-    height: 50%;
-    top: 30%;
+    height: 100%;
+    /* top: 30%; */
+    background-image: url('backgrounds/bg1.jpg');
+    background-size: 100% 100%;
 }
 
 #artwork-description{
@@ -115,26 +154,30 @@ body {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+  text-shadow: 0px 6px 20px #000000, 0px -4px 0px #000000, 0px -4px 0px #000000;
 }
 #artwork-image{
-    width: 500px;
-    height: 500px;
-    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
     z-index: 1;
     border-radius: 15px;
-    
+    opacity: 89%;
 }
 #artwork-title{
     color: white;
     font-size: 15px;
     font-family: 'Sometype Mono', monospace;
     text-transform: uppercase;
+    text-shadow: 0px 6px 20px #000000, 0px -4px 0px #000000, 0px -4px 0px #000000;
 }
 #artwork-artist{
     color: white;
     font-family: 'Sometype Mono', monospace;
     text-transform: uppercase;
+    text-shadow: 0px 6px 20px #000000, 0px -4px 0px #000000, 0px -4px 0px #000000;
 }
+/*                                        Floating artwork anim                              */
 .floating {  
     animation-name: floating;
     animation-duration: 3s;
@@ -150,7 +193,7 @@ body {
     50%  { transform: translate(0, 15px); }
     100%   { transform: translate(0, -0px); }    
 }
-/* Open door animation */
+/*                                        Open door animation                                */
 #eledoorl {
     transform-origin: right center;
     animation-duration: 5s;
@@ -205,3 +248,4 @@ body {
 .reverse-animation {
     animation-direction: reverse;
 }
+

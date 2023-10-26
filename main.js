@@ -2,11 +2,18 @@ $(document).ready(function() {
     const apiKey = '0YxvJxV6';
     const apiEndpoint = 'https://www.rijksmuseum.nl/api/nl/collection';
     let doorsOpen = false;
+    const elevatorMusic = $('#elevator-music')[0]; // Get the first element of the jQuery object
+    const doorsMoving = $('#doorsmoving')[0];
+    const ding = $('#ding')[0];
+    const hum = $('#hum')[0];
+    const backgroundImages = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg5.jpg', 'bg7.jpg', 'bg8.jpg', 'bg9.jpg', 'bg10.jpg', 'bg11.jpg','bg12.jpg','bg13.jpg','bg14.jpg','bg15.jpg','bg16.jpg','bg17.jpg','bg18.jpg' ];
+    doorsMoving.volume = 0.4;
+    elevatorMusic.volume = 0.3;
+    hum.volume = 0.3;
     // Gets and displays random art
     function getRandomArtwork() {
         // Define a random page number to request different results each time
         const randomPage = Math.floor(Math.random() * 10) + 1;
-        const totalPages = 5;
         const resultsPerPage = 1000;
         // Make an API request
         $.ajax({
@@ -47,7 +54,7 @@ $(document).ready(function() {
                         $('#artwork-description').text(artwork.plaqueDescription);
                     } else {
                         // No description found in the response
-                        $('#artwork-description').text('Try again :)');
+                        console.log("oopsie");
                     }
                 } else {
                     // No art found in the response
@@ -63,36 +70,38 @@ $(document).ready(function() {
         // Append the content from the hidden container to the artwork container
         $('#artwork-container').append($('#hidden-content').html());
         $('#elevator-doors').addClass('open');
-        setTimeout(openElevatorDoors, 1);
+        setTimeout(openElevatorDoors, 5000);
+        setTimeout(function() {
+            ding.play();
+        }, 5000);
         // Trigger the getRandomArtwork function to fetch and display random artwork
         getRandomArtwork();
         doorsOpen = true;
         // Hide the "Enter" button
         $('#enter-button').hide();
+        $('#newfloorbutton').text('Close Doors');
     });
   // OPEN AND CLOSE DOOR FUNCTIONALITY WORKING
     $('#newfloorbutton').on('click', function() {
-        const elevatorDoors = $('#eledoorl, #eledoorr');
         if (!doorsOpen) {
             // If closed, play animation to open.
-            $('#eledoorr').css('animation-name', 'openDoors'); 
-            $('#eledoorl').css('animation-name', 'openDoors2');
-            elevatorDoors.css('animation-duration', '4s');
-            console.log("Should be opening doors");
-            
+            setTimeout(openDoorsNewFloor, 5000);
+            getRandomArtwork();
+            changeBackground();
         } else {
+            const elevatorDoors = $('#eledoorl, #eledoorr');
             // If doors are open, play animation to close.
             elevatorDoors.css('animation-play-state', 'running');
             $('#eledoorr').css('animation-name', 'reverseDoors2'); 
             $('#eledoorl').css('animation-name', 'reverseDoors1');
             elevatorDoors.css('animation-duration', '4s'); 
             console.log("Should be closing doors");
+            $('#newfloorbutton').text('New Floor');
+            setTimeout(4000, doorsMoving.play())
+            console.log("Should not be fetching new art")
         }
         // Toggle the animation state
-        doorsOpen = !doorsOpen;
-        // Fetch and display random artwork
-        console.log("Should be fetching new art")
-        getRandomArtwork();
+        doorsOpen = !doorsOpen;   
     });
 
     $(document).on('click', '#get-random-artwork', getRandomArtwork);
@@ -102,7 +111,23 @@ $(document).ready(function() {
     function openElevatorDoors() {
         // Toggle the animation-play-state to 'running' to start the animation
         $('#eledoorl, #eledoorr').css('animation-play-state', 'running');
+        doorsMoving.play()
     }
-
-
+    function openDoorsNewFloor(){
+        const elevatorDoors = $('#eledoorl, #eledoorr');
+        $('#eledoorr').css('animation-name', 'openDoors'); 
+        $('#eledoorl').css('animation-name', 'openDoors2');
+        elevatorDoors.css('animation-duration', '4s');
+        console.log("Should be opening doors");
+        $('#newfloorbutton').text('Close Doors');
+        setTimeout(4000, doorsMoving.play())
+        ding.play()
+        console.log("Should be fetching new art")
+    }
+            // Function to change the background randomly
+     function changeBackground() {
+         const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+          const selectedImage = backgroundImages[randomIndex];
+           $('#artwork-container').css('background-image', `url(backgrounds/${selectedImage})`);
+     }
 });

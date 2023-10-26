@@ -10,32 +10,43 @@
 </head>
 <body>
     <div id="elevator-container">
+        <!--                 AUDIO                 -->
         <audio id="elevator-music" autoplay loop volume="0.1">
             <source src="music/muzak.mp3" type="audio/mp3">
         </audio>
+
+        <audio id="doorsmoving">
+            <source src="music/doorsmoving.mp3" type="audio/mp3">
+        </audio>
+        <audio id="ding">
+            <source src="music/ding.mp3" type="audio/mp3">
+        </audio>
+        <audio id="hum" loop autoplay volume="0">
+            <source src="music/hum.mp3" type="audio/mp3">
+        </audio>
+        <!--           ELEVATOR STUFF               -->
         <button id="enter-button">Enter</button>
         <button id="newfloorbutton">New Floor</button>
         <img src="img/elevator.png" id="elevatorbody">
-        <!-- <button id="doors-button">Doors</button> -->
         <div id="elevator-doors" class="close">    
             <img src="img/elevatordoorleft.png" id="eledoorl" class="elevator-doors">
             <img src="img/elevatordoorright.png" id="eledoorr" class="elevator-doors">
         </div>    
     </div>
-    <!-- Enter button -->
+    <!--      Enter button       -->
     <div id="artwork-container">
         
     </div>
     <!-- Artwork divs (Hidden by default until button is pressed) -->
     <div id="hidden-content" style="display: none;">
-        <h1>Random Artwork</h1>
+        
         <img id="artwork-image" class="floating" src="img/default-eye.gif" alt="Artwork">
         <div class="overlay">
             <p id="artwork-description"></p>
         </div>
         <h2 id="artwork-title"></h2>
         <h3 id="artwork-artist"></h3>
-        <button id="get-random-artwork">Get Random Artwork</button>
+        
     </div>
 
 </body>
