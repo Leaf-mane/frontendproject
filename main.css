@@ -8,6 +8,7 @@ html, body{
     height: 100%;
     width: 100%;
     background-color: black;
+    cursor: url("/img/cursor1.png"), default;
 }
 body {
     display: flex;
@@ -34,6 +35,7 @@ body {
     pointer-events: none;
 }
 #eledoorl {
+    pointer-events: none;
     position: absolute;
     z-index: 2;
     top: 12%;
@@ -46,6 +48,7 @@ body {
     transform: translateX(0); */
 }
 #eledoorr{
+    pointer-events: none;
     position: absolute;
     z-index: 2;
     top: 12%;
@@ -58,16 +61,6 @@ body {
     transform: translateX(0); */
 }
 /*                                         Buttons                                                   */
-#doors-button{
-    background-color: red;
-    z-index: 6666;
-    display: block;
-    height: 500px;
-    width: 500px;
-    top: 82%;
-    right: 9%;
-    
-}
 #enter-button{
     width: 5vw;
     height: 10vh;
@@ -83,12 +76,13 @@ body {
     box-shadow:inset 0px 0px 14px 11px #f7f7f7;
 	background:linear-gradient(to bottom, #c7c7c7 5%, #333333 100%);
 	background-color:#c7c7c7;
-    cursor:pointer;
+    cursor:url('img/cursor2.png'), pointer;
     color:#ffffff;
     font-family: 'Sometype Mono', monospace;
     padding: 20px;
     text-decoration:none;
 	text-shadow:0px 0px 4px #ff0000;
+    text-align: center;
 }
 #enter-button:hover{
     background-color: #4CAF50; /* Green */
@@ -110,20 +104,22 @@ body {
     box-shadow:inset 0px 0px 14px 11px #f7f7f7;
 	background:linear-gradient(to bottom, #c7c7c7 5%, #333333 100%);
 	background-color:#c7c7c7;
-    cursor:pointer;
+    cursor:url('img/cursor2.png'), pointer;
     color:#ffffff;
     font-family: 'Sometype Mono', monospace;
     padding: 20px;
     text-decoration:none;
 	text-shadow:0px 0px 4px #ff0000;
+    text-align: center;
+
 }
-#newFloorButton:hover{
+/* #newfloorbutton:hover{
     background:linear-gradient(to bottom, #333333 5%, #c7c7c7 100%);
 	background-color:#333333;
-}
-#newFloorButton:active {
-	position:relative;
-	top:1px;
+} */
+#newfloorbutton:active {
+    background:linear-gradient(to bottom, #333333 5%, #c7c7c7 100%);
+	background-color:#333333;
 }
 
 
