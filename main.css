@@ -254,6 +254,7 @@ body {
     height: 5%;
     width: 3%;
     opacity: 1%;
+    cursor:url('img/scared.png'), pointer;
 }
 #jumpscare{
     position: fixed;
