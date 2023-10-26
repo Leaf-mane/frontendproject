@@ -83,7 +83,7 @@ $(document).ready(function() {
         setTimeout(loadCloseDoorButton, 5000)
         // Hide the "Enter" button
         $('#enter-button').hide();
-        $('#newfloorbutton').text('Bringing you to your floor...');
+        $('#newfloorbutton').text('Moving...');
     });
 // ************************************************************** Open and close elevator doors ******************************************************** //
     $('#newfloorbutton').on('click', function() {
