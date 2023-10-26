@@ -70,6 +70,7 @@ $(document).ready(function() {
         // Append the content from the hidden container to the artwork container
         $('#artwork-container').append($('#hidden-content').html());
         $('#elevator-doors').addClass('open');
+        
         setTimeout(openElevatorDoors, 5000);
         setTimeout(function() {
             ding.play();
@@ -77,17 +78,19 @@ $(document).ready(function() {
         // Trigger the getRandomArtwork function to fetch and display random artwork
         getRandomArtwork();
         doorsOpen = true;
+        setTimeout(loadCloseDoorButton, 5000)
         // Hide the "Enter" button
         $('#enter-button').hide();
-        $('#newfloorbutton').text('Close Doors');
+        $('#newfloorbutton').text('Bringing you to your floor...');
     });
   // OPEN AND CLOSE DOOR FUNCTIONALITY WORKING
     $('#newfloorbutton').on('click', function() {
         if (!doorsOpen) {
             // If closed, play animation to open.
-            setTimeout(openDoorsNewFloor, 5000);
             getRandomArtwork();
             changeBackground();
+            $('#newfloorbutton').text('Heading to new floor...');
+            setTimeout(openDoorsNewFloor, 5000);
         } else {
             const elevatorDoors = $('#eledoorl, #eledoorr');
             // If doors are open, play animation to close.
@@ -96,7 +99,8 @@ $(document).ready(function() {
             $('#eledoorl').css('animation-name', 'reverseDoors1');
             elevatorDoors.css('animation-duration', '4s'); 
             console.log("Should be closing doors");
-            $('#newfloorbutton').text('New Floor');
+            waitingDoorButton();
+            setTimeout(loadNewFloorButton, 4000)
             setTimeout(4000, doorsMoving.play())
             console.log("Should not be fetching new art")
         }
@@ -104,10 +108,10 @@ $(document).ready(function() {
         doorsOpen = !doorsOpen;   
     });
 
-    $(document).on('click', '#get-random-artwork', getRandomArtwork);
-    console.log("Click detected on artwork button")
-    // // Get a random artwork when the page loads
-    // // getRandomArtwork();
+    // $(document).on('click', '#get-random-artwork', getRandomArtwork);
+    // console.log("Click detected on artwork button")
+    // // // Get a random artwork when the page loads
+    // // // getRandomArtwork();
     function openElevatorDoors() {
         // Toggle the animation-play-state to 'running' to start the animation
         $('#eledoorl, #eledoorr').css('animation-play-state', 'running');
@@ -119,7 +123,8 @@ $(document).ready(function() {
         $('#eledoorl').css('animation-name', 'openDoors2');
         elevatorDoors.css('animation-duration', '4s');
         console.log("Should be opening doors");
-        $('#newfloorbutton').text('Close Doors');
+        waitingDoorButton();
+        setTimeout(loadCloseDoorButton, 4000)
         setTimeout(4000, doorsMoving.play())
         ding.play()
         console.log("Should be fetching new art")
@@ -129,5 +134,14 @@ $(document).ready(function() {
          const randomIndex = Math.floor(Math.random() * backgroundImages.length);
           const selectedImage = backgroundImages[randomIndex];
            $('#artwork-container').css('background-image', `url(backgrounds/${selectedImage})`);
+     }
+     function loadNewFloorButton(){
+        $('#newfloorbutton').text('New Floor');
+     }
+     function loadCloseDoorButton(){
+        $('#newfloorbutton').text('Close Doors');
+     }
+     function waitingDoorButton(){
+        $('#newfloorbutton').text('Waiting...');
      }
 });
