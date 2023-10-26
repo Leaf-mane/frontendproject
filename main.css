@@ -69,8 +69,8 @@ body {
     
 }
 #enter-button{
-    width: 100px;
-    height: 100px;
+    width: 5vw;
+    height: 10vh;
     color: black;
     background-color: white;
     position: absolute;
@@ -96,8 +96,8 @@ body {
 }
 
 #newfloorbutton{
-    width: 100px;
-    height: 100px;
+    width: 5vw;
+    height: 10vh;
     color: black;
     background-color: white;
     position: absolute;
