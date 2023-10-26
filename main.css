@@ -15,6 +15,7 @@ body {
     margin: 0;
     padding: 0;
     position: relative;
+    overflow: hidden;
 }
 #elevatorcontainer{
     display: flex;
@@ -74,13 +75,25 @@ body {
     right: 9.6%;
     border-radius: 15px;
     transition-duration: 0.4s;
-    z-index: 5;
+    z-index: 7;
 }
 #enter-button:hover{
     background-color: #4CAF50; /* Green */
     color: white;
 }
-
+#newfloorbutton{
+    width: 100px;
+    height: 100px;
+    color: black;
+    background-color: white;
+    position: absolute;
+    z-index: 2;
+    top: 82%;
+    right: 9.6%;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    z-index: 6;
+}
 #artwork-container{
     display: flex; /* Use flexbox to center its contents vertically and horizontally */
     justify-content: center; /* Center horizontally */
@@ -137,10 +150,10 @@ body {
     50%  { transform: translate(0, 15px); }
     100%   { transform: translate(0, -0px); }    
 }
-
+/* Open door animation */
 #eledoorl {
     transform-origin: right center;
-    animation-duration: 2s;
+    animation-duration: 5s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
     animation-name: openDoors2;
@@ -149,7 +162,7 @@ body {
 }
 #eledoorr {
     transform-origin: left center;
-    animation-duration: 2s;
+    animation-duration: 5s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: 1;
     animation-name: openDoors;
@@ -172,4 +185,23 @@ body {
     100% {
         transform: translateX(-100%);
     }
+}
+@keyframes reverseDoors1 {
+    0% {
+        transform: translateX(-100%); /* Start from the fully open position */
+    }
+    100% {
+        transform: translateX(0); /* Go back to the fully closed position */
+    }
+}
+@keyframes reverseDoors2 {
+    0% {
+        transform: translateX(92%); /* Start from the fully open position */
+    }
+    100% {
+        transform: translateX(0); /* Go back to the fully closed position */
+    }
+}
+.reverse-animation {
+    animation-direction: reverse;
 }
