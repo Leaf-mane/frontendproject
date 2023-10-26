@@ -10,6 +10,7 @@ $(document).ready(function() {
     doorsMoving.volume = 0.4;
     elevatorMusic.volume = 0.3;
     hum.volume = 0.3;
+    elevatorMusic.play();
     // Gets and displays random art
     function getRandomArtwork() {
         // Define a random page number to request different results each time

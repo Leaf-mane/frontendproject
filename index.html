@@ -3,7 +3,6 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="main.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dotenv@10.0.0/dist/dotenv.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +11,7 @@
 <body>
     <div id="elevator-container">
         <!--                 AUDIO                 -->
-        <audio id="elevator-music" autoplay loop volume="0.1">
+        <audio id="elevator-music" autoplay muted loop volume="0.1">
             <source src="music/muzak.mp3" type="audio/mp3">
         </audio>
 
@@ -22,7 +21,7 @@
         <audio id="ding">
             <source src="music/ding.mp3" type="audio/mp3">
         </audio>
-        <audio id="hum" loop autoplay volume="0">
+        <audio id="hum" loop autoplay muted volume="0">
             <source src="music/hum.mp3" type="audio/mp3">
         </audio>
         <!--           ELEVATOR STUFF               -->
