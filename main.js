@@ -2,7 +2,7 @@ $(document).ready(function() {
     apiKey='0YxvJxV6';
     const apiEndpoint = 'https://www.rijksmuseum.nl/api/nl/collection';
     let doorsOpen = false;
-    const elevatorMusic = $('#elevator-music')[0]; // Get the first element of the jQuery object
+    const elevatorMusic = $('#elevator-music')[0]; 
     const doorsMoving = $('#doorsmoving')[0];
     const ding = $('#ding')[0];
     const hum = $('#hum')[0];
@@ -67,11 +67,11 @@ $(document).ready(function() {
         });
     }
     // First entry function WORKING***
-    $('#enter-button').on('click', function() {
+    $('#enter-button').on('click', function() { 
+        elevatorMusic.play();
         // Append the content from the hidden container to the artwork container
         $('#artwork-container').append($('#hidden-content').html());
         $('#elevator-doors').addClass('open');
-        
         setTimeout(openElevatorDoors, 5000);
         setTimeout(function() {
             ding.play();
@@ -117,6 +117,7 @@ $(document).ready(function() {
         // Toggle the animation-play-state to 'running' to start the animation
         $('#eledoorl, #eledoorr').css('animation-play-state', 'running');
         doorsMoving.play()
+
     }
     function openDoorsNewFloor(){
         const elevatorDoors = $('#eledoorl, #eledoorr');
