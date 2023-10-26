@@ -69,6 +69,7 @@ $(document).ready(function() {
     // First entry function WORKING***
     $('#enter-button').on('click', function() { 
         elevatorMusic.play();
+        hum.play();
         // Append the content from the hidden container to the artwork container
         $('#artwork-container').append($('#hidden-content').html());
         $('#elevator-doors').addClass('open');
