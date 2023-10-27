@@ -7,7 +7,6 @@ $(document).ready(function() {
     const ding = $('#ding')[0];
     const hum = $('#hum')[0];
     doorsMoving.volume = 0.4;
-
 // ************************************************************** Fetch and display random artworks ******************************************************** //
     function getRandomArtwork() {
         // Define a random page number to request different results each time
@@ -41,9 +40,7 @@ $(document).ready(function() {
                         $('#artwork-image').attr('src', artworkImage);
                     } else {
                         $('#artwork-image').attr('src', defaultImage);
-                    }
-
-                
+                    }    
 // *************************************** Apply results of API to HTML ******************** //
 
                     console.log("Applying artwork")
@@ -130,7 +127,7 @@ $(document).ready(function() {
     }
 // ************************************************************** Randomly change background ******************************************************** //
      function changeBackground() {
-        const backgroundImages = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg5.jpg', 'bg7.jpg', 'bg8.jpg', 'bg9.jpg', 'bg10.jpg', 'bg11.jpg','bg12.jpg','bg13.jpg','bg14.jpg','bg15.jpg','bg16.jpg','bg17.jpg','bg18.jpg' ];
+        const backgroundImages = ['bg1.jpg', 'bg2.jpg', 'bg3.jpg', 'bg5.jpg', 'bg7.jpg', 'bg8.jpg', 'bg9.jpg', 'bg10.jpg', 'bg11.jpg','bg12.jpg','bg13.jpg','bg14.jpg','bg15.jpg','bg16.jpg','bg17.jpg','bg18.jpg','bg19.jpg','bg20.jpg','bg21.jpg','bg22.jpg','bg23.jpg','bg24.jpg','bg25.jpg' ];
         const randomIndex = Math.floor(Math.random() * backgroundImages.length);
         const selectedImage = backgroundImages[randomIndex];
         $('#artwork-container').css('background-image', `url(backgrounds/${selectedImage})`);
