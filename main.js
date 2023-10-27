@@ -12,7 +12,7 @@ $(document).ready(function() {
         // Define a random page number to request different results each time
         const randomPage = Math.floor(Math.random() * 10) + 1;
         const resultsPerPage = 1000;
-        // Make an API request
+        // Make an API request with the $.ajax function
         $.ajax({
             url: apiEndpoint,
             headers: {
@@ -26,6 +26,7 @@ $(document).ready(function() {
                 p: randomPage, // Random page
                 ps: resultsPerPage,
             },
+            //When AJAX call is successful, run the function
             success: function(data) {
                 // Check if there are any artworks in the response
                 if (data.artObjects && data.artObjects.length > 0) {
@@ -35,14 +36,12 @@ $(document).ready(function() {
                 // Fallback in case of missing artwork from source
                     const artworkImage = artwork.webImage.url;
                     const defaultImage = 'img/default-eye.gif';
-
                     if (artworkImage){
                         $('#artwork-image').attr('src', artworkImage);
                     } else {
                         $('#artwork-image').attr('src', defaultImage);
                     }    
 // *************************************** Apply results of API to HTML ******************** //
-
                     console.log("Applying artwork")
                     $('#artwork-title').text(artwork.title);
                     $('#artwork-artist').text(artwork.principalOrFirstMaker);
@@ -132,6 +131,7 @@ $(document).ready(function() {
         const selectedImage = backgroundImages[randomIndex];
         $('#artwork-container').css('background-image', `url(backgrounds/${selectedImage})`);
      }
+//  ************************************************************* Button textchange ***********************************************************************//
      function loadNewFloorButton(){
         $('#newfloorbutton').text('New Floor');
      }
